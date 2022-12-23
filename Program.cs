@@ -56,6 +56,58 @@
 
 
 
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// {
+//     int[] myArray = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         myArray[i] = new Random().Next(minValue, maxValue + 1);
+//     }
+//     return myArray;
+// }
+
+// void ShowArray(int[] array)
+// {
+//     Console.WriteLine("Полученный массив ->:");
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i] + " ");
+//     }
+//     Console.WriteLine();
+// }
+
+// int findSum (int[] array)
+// {
+//     int summ = 0;
+//     for (int i=1; i<array.Length; i++)
+//     {
+//         summ = summ + array [i];
+//         i++;
+//     }
+//     return summ;
+// }
+
+
+// Console.WriteLine("Введите размер массива");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите минимально возможное значение элемента массива:");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите максимально возможное значение элемента массива:");
+// int max = Convert.ToInt32(Console.ReadLine());
+
+
+// int[] newArray = CreateRandomArray(size, min, max);
+// ShowArray(newArray);
+// int result = findSum(newArray);
+// Console.WriteLine($"сумма элементов, стоящих на нечётных позициях = {result}");
+
+
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+// [3 7 22 2 78] -> 76
+
+
 int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] myArray = new int[size];
@@ -68,7 +120,7 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
 
 void ShowArray(int[] array)
 {
-    Console.WriteLine("Полученный массив ->:");
+    Console.WriteLine("Полученный массив ->:");  
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write(array[i] + " ");
@@ -76,15 +128,19 @@ void ShowArray(int[] array)
     Console.WriteLine();
 }
 
-int findSum (int[] array)
+int findDiff (int[] array)
 {
-    int summ = 0;
-    for (int i=1; i<array.Length; i++)
+    int i=0;
+    int minN = array[i];
+    int maxN = array[i];
+    int diff = 0;
+    for (i=0; i<array.Length - 1; i++)
     {
-        summ = summ + array [i];
-        i++;
+        if (array[i+1]>maxN) maxN = array [i+1];
+        if (array[i+1]<minN) minN = array [i+1];
     }
-    return summ;
+    diff = maxN - minN;
+    return diff;
 }
 
 
@@ -98,5 +154,9 @@ int max = Convert.ToInt32(Console.ReadLine());
 
 int[] newArray = CreateRandomArray(size, min, max);
 ShowArray(newArray);
-int result = findSum(newArray);
-Console.WriteLine($"сумма элементов, стоящих на нечётных позициях = {result}");
+int result = findDiff(newArray);
+Console.WriteLine($"разница между максимальным и минимальным элементов массива = {result}");
+
+
+
+// Math.Round(Math.Sqrt(dx*dx + dy*dy),2);
