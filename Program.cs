@@ -156,7 +156,3 @@ int[] newArray = CreateRandomArray(size, min, max);
 ShowArray(newArray);
 int result = findDiff(newArray);
 Console.WriteLine($"разница между максимальным и минимальным элементов массива = {result}");
-
-
-
-// Math.Round(Math.Sqrt(dx*dx + dy*dy),2);
